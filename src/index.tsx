@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/App/App';
+import HomePage from './components/HomePage/HomePage';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'jquery/dist/jquery.js';
@@ -9,22 +9,29 @@ import 'popper.js/dist/popper.js';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import '@fortawesome/fontawesome-free/css/fontawesome.css';
 import { MainMenu, MainMenuItem } from './components/MainMenu/MainMenu';
+import { HashRouter, Route, Routes } from 'react-router-dom';
+import ContactPage from './components/ContactPage/ContactPage';
+import UserLoginPage from './components/UserLoginPage/UserLoginPage';
+
 
 const menuItems = [
   new MainMenuItem("Home", "/"),
-  new MainMenuItem("About us", "/page/about-us/"),
   new MainMenuItem("Contact", "/contacts/"),
   new MainMenuItem("Log in ", "/users/login/"),
 ];
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
+ReactDOM.render(
+  <React.StrictMode>       
     <MainMenu items={ menuItems }></MainMenu>
-    <App />
-  </React.StrictMode>
+    <HashRouter>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/contact' element={<ContactPage />} />
+        <Route path='/users/login/' element={<UserLoginPage />} />
+      </Routes>
+    </HashRouter>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

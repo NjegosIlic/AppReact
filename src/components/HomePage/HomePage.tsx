@@ -1,16 +1,14 @@
 import React from 'react';
-import './App.css';
-import { Card, Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { MainMenu } from '../MainMenu/MainMenu';
 
-function App() {
+function HomePage() {
   return (
     <Container>
-      <FontAwesomeIcon icon={ faHome } /> Home
+      <FontAwesomeIcon icon={ faHome } /> Home koji treba da se pojavi
     </Container>
   );
 }
 
-export default App;
+export default HomePage;
